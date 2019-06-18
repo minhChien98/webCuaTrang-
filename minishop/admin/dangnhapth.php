@@ -30,11 +30,11 @@
 	 {
 	 	$query = "select * from tbl_khang where tentk = '".$username."'";
 	 	$result = mysqli_query($ketnoi, $query);
-	 	$user = mysqli_fetch_array($result);
 		session_start();
 
 		$_SESSION['tentk'] = $username;
 		$row=  mysqli_fetch_array($du_lieu);
+    $user = mysqli_fetch_array($result);
 
 		$_SESSION['phanquyen']=$row['phanquyen'] ;
 		$_SESSION['name'] = $user['tenkh'];
@@ -51,6 +51,6 @@
 
 		
 		
-		//header('Location: ../admin/quanlidv.php');
+		// header('Location: ../admin/quanlidv.php');
 	}
 ;?>

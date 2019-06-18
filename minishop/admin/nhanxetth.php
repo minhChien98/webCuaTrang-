@@ -8,15 +8,17 @@
 <?php 
 
 $noidung=$_POST["txtNoidung"];
-$ngayviet=getdate();
-$madv=$_POST["txtMadv"];
-$tentk= $_SESSION['userCode'] || 1;
-
+$now = new DateTime();
+$ngayviet = $now->format('Y-m-d');
+$madv=trim($_POST["txtMadv"]);
+$tentk = $_SESSION['tentk'];
 include("../cauhinh/db_cauhinh.php");
 $ketnoi=mysqli_connect($dbhost, $dbuser, $dbpassword, $dbname);
-	$sql="INSERT INTO tbl_nhanxet (noidung, ngayviet, madv, makh) VALUES ('".$noidung."', '".$ngayviet."','".$madv."', '".var_dump($tentk)."')";
+	$sql="INSERT INTO tbl_nhanxet (noidung, ngayviet, madv, tentk) VALUES ('".$noidung."', '".$ngayviet."','".$madv."', '".$tentk."')";
 	
-	mysqli_query($ketnoi, $sql);
-	//header('location:quanlidv.php');
+  mysqli_query($ketnoi, $sql);
+//  echo '<script>console.log('.json_encode($_SERVER['HTTP_REFERER']).')</script>';
+//  echo "<meta http-equiv= 'refresh' content='0;URL=product-single.php?id='.$madv'>";
+header('Location: '.$_SERVER['HTTP_REFERER']);
 
 ?>

@@ -195,7 +195,7 @@
 				
 
 				// Lấy ra dữ liệu mong muốn
-				$sql = "SELECT * FROM tbl_nhanxet ";
+				$sql = "SELECT * FROM `tbl_nhanxet` a INNER JOIN `tbl_khang` b ON a.tentk = b.tentk";
 				$noidung = mysqli_query($ketnoi, $sql);
 
 				// Hiển thị chúng
@@ -208,14 +208,14 @@
 				   		</div>
 								   		<div class="desc">
 								   			<h4>
-								   				<span class="text-left"><?php echo $row['makh']; ?></span>
+								   				<span class="text-left"><?php echo $row['tenkh']; ?></span>
 								   				<span class="text-right"><?php echo $row['ngayviet']; ?></span>
 								   			</h4>
 								   		
 								   			<input type="text" name="" value="<?php echo html_entity_decode($row['noidung']); ?>" readonly>
 								   		</div>
 					</div>
-               	 	</divo>
+               	 	</div>
                	 	<?php 
                	 	}
                	 	mysqli_close( $ketnoi) ?>

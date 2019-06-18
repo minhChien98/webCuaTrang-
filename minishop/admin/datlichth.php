@@ -7,7 +7,8 @@
 ;?>
 <?php 
 $ngayhen=$_POST["txtNgayhen"];
-$ngaydat=getdate();
+$now = new DateTime();
+$ngaydat = $now->format('Y-m-d');
 $ghichu=$_POST["txtGhichu"];
 $madv=$_POST["txtMadv"];
 $tentk=$_SESSION['tentk'];
@@ -16,9 +17,8 @@ include("../cauhinh/db_cauhinh.php");
 $ketnoi=mysqli_connect($dbhost, $dbuser, $dbpassword, $dbname);
 
 
-$sql="INSERT INTO `tbl_datlich` (`madatlich`, `ngaydat`, `ngayhen`, `ghichu`, `tentk`, `madv`) VALUES ( '".$ngaydat."', '".$ngayhen."', '".$ghichu."', '".$tentk."', '".$madv."');
-";
+$sql="INSERT INTO `tbl_datlich` (`ngaydat`, `ngayhen`, `ghichu`, `tentk`, `madv`) VALUES ( '".$ngaydat."', '".$ngayhen."', '".$ghichu."', '".$tentk."', '".$madv."')";
 
 mysqli_query($ketnoi, $sql);
-//header('location:../index.php');
+header('location:../index.php');
  ?>

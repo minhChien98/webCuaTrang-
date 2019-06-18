@@ -15,6 +15,6 @@ mysqli_query($ketnoi, $sql1);
 $sql="INSERT INTO tbl_khang (tenkh, email, sdt, tentk) VALUES ( '".$hoten."', '".$email."', '".$sdt."', '".$taikhoan."');";
 mysqli_query($ketnoi, $sql);
 
-//header('location:../index.php');
+header('location:../dangnhap.php');
  ?>
  
